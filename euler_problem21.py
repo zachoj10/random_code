@@ -4,15 +4,18 @@
 #variables used(n, s, p, i, x,)
 
 numbs = { }
+##numbs represents all of the factors of a particular input
 sums = { }
+##sums represents the sum of all of the factors for a particular input
+
 
 
 n = [ ]
 s = 284
 
-for p in xrange(1,10001):
+for p in range(1,10001):
     hello = [ ] 
-    for i in xrange(2,p):
+    for i in range(1,p):
         if p % i == 0:
             hello.append(i)
     numbs[p] = hello
@@ -22,22 +25,32 @@ for p in xrange(1,10001):
 
 
 ##for i in numbs:
-##    print i, numbs[i]
+##    print(i, numbs[i])
 
 for i in numbs:
     sums[i] = sum(numbs[i])
 
 
 ##for i in sums:
-##    print i,':', sums[i]
+##    print(i,':', sums[i])
 
-compare = [ ] 
+compare = [ ]
+numbers = [ ] 
 
-for i in range(1,10001):
+for z in range(1,10001):
     for x in range(1,10001):
-        if numbs[i] == sums[x] and numbs[x] == sums[i]:
-            zoo = (numbs[i],numbs[x])
-            compare.append(zoo)
+        if z == sums[x]:
+            if x == sums[z]:
+                if x == z:
+                    q = 0
+                else:
+                    zoo = (x,z)
+                    paul = (x+z)
+                    numbers.append(zoo)
+                    compare.append(paul)
 
-print('compare equals', compare)
-        
+j = sum(compare)
+b = j/2
+
+print('the amicable pairs are', numbers)
+print('the sum of the amicable pairs is', b)
